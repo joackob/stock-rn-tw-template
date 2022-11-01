@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { ActivityIndicator, ScrollView } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useTheme } from "@rneui/themed";
 import tw from "twrnc";
@@ -23,6 +23,7 @@ const Inventory = () => {
         source={require(`../../assets/img/control-inventario-erp.png`)}
         containerStyle={tw`w-full h-64`}
         style={tw`w-full h-64`}
+        PlaceholderContent={<ActivityIndicator />}
       />
     </ScrollView>
   );
