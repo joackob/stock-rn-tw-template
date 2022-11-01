@@ -1,16 +1,14 @@
-import { Text } from "react-native";
 import React, { ReactNode } from "react";
 import { ThemeProvider, createTheme } from "@rneui/themed";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const theme = createTheme({
   components: {},
   lightColors: {
-    primary: "#7e57c2",
-    secondary: "#b085f5",
-    black: "#000",
+    primary: "#dbf2f4",
+    secondary: "#a9bfc1",
+    black: "#1a2e35",
     white: "#fff",
-    background: "#7e57c2",
+    background: "#dbf2f4",
   },
 });
 

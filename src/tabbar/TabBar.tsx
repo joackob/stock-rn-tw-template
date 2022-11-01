@@ -10,12 +10,10 @@ const TabBarIcon =
   (routeName: string) =>
   ({ color, size }: { color: string; size: number }) => {
     switch (routeName) {
-      case "Home":
-        return <Icon name="home" size={size} color={color} />;
       case "Actividad":
         return <Icon name="book" size={size} color={color} />;
       case "Inventario":
-        return <Icon name="collections" size={size} color={color} />;
+        return <Icon name="inventory" size={size} color={color} />;
       default:
         break;
     }
@@ -29,7 +27,7 @@ const TabBar = () => {
         screenOptions={({ route }) => {
           return {
             tabBarIcon: TabBarIcon(route.name),
-            tabBarActiveTintColor: theme.colors.white,
+            tabBarActiveTintColor: theme.colors.black,
             tabBarInactiveTintColor: theme.colors.secondary,
             tabBarStyle: {
               backgroundColor: theme.colors.background,
@@ -37,26 +35,8 @@ const TabBar = () => {
           };
         }}
       >
-        <Tab.Screen
-          name="Inventario"
-          component={Inventory}
-          options={{
-            headerStyle: {
-              backgroundColor: theme.colors.background,
-            },
-            headerTintColor: theme.colors.white,
-          }}
-        />
-        <Tab.Screen
-          name="Actividad"
-          component={Activity}
-          options={{
-            headerStyle: {
-              backgroundColor: theme.colors.background,
-            },
-            headerTintColor: theme.colors.white,
-          }}
-        />
+        <Tab.Screen name="Inventario" component={Inventory} />
+        <Tab.Screen name="Actividad" component={Activity} />
       </Tab.Navigator>
     </NavigationContainer>
   );
