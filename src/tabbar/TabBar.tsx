@@ -30,7 +30,7 @@ const TabBar = () => {
             tabBarActiveTintColor: theme.colors.black,
             tabBarInactiveTintColor: theme.colors.secondary,
             tabBarStyle: {
-              backgroundColor: theme.colors.background,
+              backgroundColor: theme.colors.white,
             },
           };
         }}
