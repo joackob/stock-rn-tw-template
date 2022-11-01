@@ -63,4 +63,22 @@ Por otra parte, para compilar el ejecutable ya sea para android o para ios, debe
 - [Expo](https://expo.dev/)
 - [TailwindCSS con TWRNC](https://github.com/jaredh159/tailwind-react-native-classnames)
 - [Rect Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
+- [React Native Navigation](https://reactnavigation.org/)
 - [Expo Google Fonts](https://docs.expo.dev/guides/using-custom-fonts/) (No se encuentra por defecto en el template, pero se recomienda su uso)
+- [React Native Elements](https://reactnativeelements.com/)
+
+## Pasos para customizar este template
+
+### Favicon
+
+Empieza eligiendo el icono o logotipo que representará a la pagina. Recomiendo https://favicon.io/ para este trabajo. Es rápido, sencillo, y nos provee de todo lo necesario para incluir el icono en la pagina. Cuando termine de crear la marca, descargue el comprimido y su contenido debe moverse a la carpeta `public` del proyecto. 
+
+La propia pagina nos otorga los links que debemos pegar en el `Layout/components/Header` para que los iconos sean tomados en cuenta.
+
+### Colores
+
+Con la marca ya elegida, proceda a elegir los colores que serán parte del estilo de la pagina. En la carpeta `src/theme/Theme.tsx` se encuentra el componente a cargo de customizar la paleta de colores, ademas de otras características del estilo. Recomiendo leer los siguientes artículos para saber más.
+
+- https://mui.com/material-ui/customization/theming/
+- https://mui.com/material-ui/customization/color/
+- https://reactnativeelements.com/docs/customization/themeprovider
