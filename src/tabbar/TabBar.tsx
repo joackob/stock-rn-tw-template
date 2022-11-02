@@ -28,7 +28,7 @@ const TabBar = () => {
           return {
             tabBarIcon: TabBarIcon(route.name),
             tabBarActiveTintColor: theme.colors.black,
-            tabBarInactiveTintColor: theme.colors.secondary,
+            tabBarInactiveTintColor: theme.colors.grey0,
             tabBarStyle: {
               backgroundColor: theme.colors.white,
             },

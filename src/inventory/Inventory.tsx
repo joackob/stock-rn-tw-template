@@ -22,7 +22,7 @@ const Inventory = () => {
   return (
     <ScrollView
       style={{
-        backgroundColor: theme.colors.primary,
+        backgroundColor: theme.colors.background,
       }}
     >
       <Image

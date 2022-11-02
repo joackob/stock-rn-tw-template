@@ -9,8 +9,11 @@ import { ThemeProvider, createTheme } from "@rneui/themed";
 const theme = createTheme({
   components: {},
   lightColors: {
-    primary: "#dbf2f4",
-    secondary: "#a9bfc1",
+    // primary: "#dbf2f4",
+    primary: "#fc5b01",
+    // secondary: "#a9bfc1",
+    secondary: "#fcb834",
+    grey0: "#a9bfc1",
     black: "#365A61",
     white: "#fff",
     background: "#dbf2f4",
