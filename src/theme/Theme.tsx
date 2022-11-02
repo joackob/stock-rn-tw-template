@@ -1,6 +1,11 @@
 import React, { ReactNode } from "react";
 import { ThemeProvider, createTheme } from "@rneui/themed";
 
+// celeste #DBF2F5
+// naranja #fc5b01
+// amarillo #fcb834
+// negro #375a64
+
 const theme = createTheme({
   components: {},
   lightColors: {
