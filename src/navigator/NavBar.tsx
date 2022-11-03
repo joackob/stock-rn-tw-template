@@ -1,29 +1,30 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import InventoryScreen from "../inventory/InventoryScreen";
-import ActivityScreen from "../activity/ActivityScreen";
+import MainInventory from "../inventory/MainInventory";
+import MainActivity from "../activity/MainActivity";
 import { Icon } from "@rneui/themed";
 import { useTheme } from "@rneui/themed";
+import tw from "twrnc";
 
 const navBarIcon =
   (routeName: string) =>
   ({ color, size }: { color: string; size: number }) => {
     switch (routeName) {
-      case "Actividad":
+      case "MainActivity":
         return <Icon name="book" size={size} color={color} />;
-      case "Inventario":
+      case "MainInventory":
         return <Icon name="inventory" size={size} color={color} />;
       default:
         break;
     }
   };
 
-const Nav = createBottomTabNavigator();
-
-const NavBarParamList = {
-  Inventario: undefined,
-  Actividad: undefined,
+export type NavBarParamList = {
+  MainInventory: undefined;
+  MainActivity: undefined;
 };
+
+const Nav = createBottomTabNavigator<NavBarParamList>();
 
 const NavBar = () => {
   const { theme } = useTheme();
@@ -37,11 +38,25 @@ const NavBar = () => {
           tabBarStyle: {
             backgroundColor: theme.colors.white,
           },
+          headerShown: false,
+          tabBarLabelStyle: [tw`font-bold`, { color: theme.colors.black }],
         };
       }}
     >
-      <Nav.Screen name="Inventario" component={InventoryScreen} />
-      <Nav.Screen name="Actividad" component={ActivityScreen} />
+      <Nav.Screen
+        name="MainInventory"
+        component={MainInventory}
+        options={{
+          title: "Menu",
+        }}
+      />
+      <Nav.Screen
+        name="MainActivity"
+        component={MainActivity}
+        options={{
+          title: "Actividad",
+        }}
+      />
     </Nav.Navigator>
   );
 };

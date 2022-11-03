@@ -1,12 +1,12 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import NavBar from "./NavBar";
 
-const RootStack = createNativeStackNavigator();
-const RootStackParamList = {
-  NavBar: undefined,
+export type RootStackParamList = {
+  NavBar: undefined;
 };
+
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootStackNavigator = () => {
   return (

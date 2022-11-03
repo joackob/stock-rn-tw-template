@@ -1,26 +1,24 @@
 import { ActivityIndicator, ScrollView, View } from "react-native";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import { useTheme, Image, Input } from "@rneui/themed";
 import tw from "twrnc";
-import { useNavigation } from "@react-navigation/native";
-import { Inventories } from "./components";
+import { InventoryList } from "./components";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Inventory } from "./interfaces";
 
-const InventoryScreen = () => {
+const MainInventory = () => {
   const { theme } = useTheme();
-  const nav = useNavigation();
-  useLayoutEffect(() => {
-    nav.setOptions({
-      headerShown: false,
-    });
-  });
+  const [name, setName] = useState<string>("");
+  const [inventories, setInventories] = useState<Inventory[]>([]);
 
-  const [input, setInput] = useState<string>("");
   const handleEndEditing = () => {
-    setInventories([input, ...inventories]);
-    setInput("");
+    const inventory = {
+      name: name,
+      id: inventories.length >= 1 ? inventories[0].id + 1 : "1",
+    };
+    setInventories([inventory, ...inventories]);
+    setName("");
   };
-  const [inventories, setInventories] = useState<string[]>([]);
 
   return (
     <SafeAreaView style={tw`h-full`}>
@@ -39,15 +37,15 @@ const InventoryScreen = () => {
           <Input
             placeholder="Crear un nuevo inventario"
             onEndEditing={handleEndEditing}
-            onChangeText={setInput}
+            onChangeText={setName}
             containerStyle={tw`bg-white pt-5 pb-0 px-10 rounded-xl`}
-            value={input}
+            value={name}
           />
-          <Inventories inventories={inventories} />
+          <InventoryList inventories={inventories} />
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default InventoryScreen;
+export default MainInventory;

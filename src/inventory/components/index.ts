@@ -1,4 +1,4 @@
 import InventoryCard from "./InventoryCard";
-import Inventories from "./Inventories";
+import InventoryList from "./InventoryList";
 
-export { Inventories, InventoryCard };
+export { InventoryList, InventoryCard };

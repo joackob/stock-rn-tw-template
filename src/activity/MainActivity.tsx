@@ -1,17 +1,10 @@
 import { ActivityIndicator, ScrollView } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { useTheme, Image } from "@rneui/themed";
-import { useNavigation } from "@react-navigation/native";
 import tw from "twrnc";
 
 const ActivityScreen = () => {
   const { theme } = useTheme();
-  const nav = useNavigation();
-  useLayoutEffect(() => {
-    nav.setOptions({
-      headerShown: false,
-    });
-  });
   return (
     <ScrollView
       style={{
