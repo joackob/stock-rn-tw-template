@@ -5,6 +5,7 @@ import MainActivity from "../activity/MainActivity";
 import { Icon } from "@rneui/themed";
 import { useTheme } from "@rneui/themed";
 import tw from "twrnc";
+import { TabStackParamList } from "./interfaces";
 
 const navBarIcon =
   (routeName: string) =>
@@ -19,12 +20,7 @@ const navBarIcon =
     }
   };
 
-export type NavBarParamList = {
-  MainInventory: undefined;
-  MainActivity: undefined;
-};
-
-const Nav = createBottomTabNavigator<NavBarParamList>();
+const Nav = createBottomTabNavigator<TabStackParamList>();
 
 const NavBar = () => {
   const { theme } = useTheme();

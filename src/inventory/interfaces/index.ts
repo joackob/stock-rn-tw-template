@@ -1,3 +1,5 @@
+import { CompositeNavigationProp } from "@react-navigation/native";
+
 export type InventoryProps = {
   name: string;
 };
