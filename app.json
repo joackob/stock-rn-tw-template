@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-twrnc-template-app",
-    "slug": "rn-twrnc-template-app",
+    "name": "stock-rn-tw-template",
+    "slug": "stock-rn-tw-template",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,14 +9,16 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#dbf2f5"
+    },
+    "primaryColor": "#dbf2f5",
+    "androidStatusBar": {
+      "backgroundColor": "#dbf2f5"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

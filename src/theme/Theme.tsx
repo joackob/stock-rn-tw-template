@@ -1,22 +1,22 @@
 import React, { ReactNode } from "react";
 import { ThemeProvider, createTheme } from "@rneui/themed";
 
-// celeste #DBF2F5
-// naranja #fc5b01
-// amarillo #fcb834
-// negro #375a64
+const celeste = "#dbf2f5";
+const naranja = "#fc5b01";
+const amarillo = "#fcb834";
+const negro = "#375a64";
+const gris = "#a9bfc1";
+const blanco = "#fff";
 
 const theme = createTheme({
   components: {},
   lightColors: {
-    // primary: "#dbf2f4",
-    primary: "#fc5b01",
-    // secondary: "#a9bfc1",
-    secondary: "#fcb834",
-    grey0: "#a9bfc1",
-    black: "#365A61",
-    white: "#fff",
-    background: "#dbf2f4",
+    primary: naranja,
+    secondary: amarillo,
+    grey0: gris,
+    black: negro,
+    white: blanco,
+    background: celeste,
   },
 });
 
