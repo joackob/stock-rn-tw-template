@@ -5,7 +5,15 @@ import tw from "twrnc";
 
 const Inventories = ({ inventories }: { inventories: string[] }) => {
   return (
-    <View style={tw`flex flex-row justify-between flex-wrap`}>
+    <View
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent:
+          inventories.length > 2 ? "space-between" : "space-around",
+      }}
+    >
       {inventories.map((name, index) => {
         return <InventoryCard key={index} name={name} />;
       })}

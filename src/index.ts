@@ -1,6 +1,4 @@
-import Inventory from "./inventory/Inventory";
-import Activity from "./activity/Activity";
-import TabBar from "./tabbar/TabBar";
-import Theme from "./theme/Theme";
+import RootStackNavigator from "./navigator";
+import Theme from "./theme";
 
-export { Inventory, Activity, TabBar, Theme };
+export { RootStackNavigator, Theme };

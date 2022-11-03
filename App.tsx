@@ -1,10 +1,13 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import { TabBar, Theme } from "./src";
+import { RootStackNavigator, Theme } from "./src";
 
 export default function App() {
   return (
     <Theme>
-      <TabBar />
+      <NavigationContainer>
+        <RootStackNavigator />
+      </NavigationContainer>
     </Theme>
   );
 }

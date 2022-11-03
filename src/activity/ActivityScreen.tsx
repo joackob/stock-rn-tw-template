@@ -4,7 +4,7 @@ import { useTheme, Image } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import tw from "twrnc";
 
-const Activity = () => {
+const ActivityScreen = () => {
   const { theme } = useTheme();
   const nav = useNavigation();
   useLayoutEffect(() => {
@@ -28,4 +28,4 @@ const Activity = () => {
   );
 };
 
-export default Activity;
+export default ActivityScreen;

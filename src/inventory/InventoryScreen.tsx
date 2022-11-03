@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Inventories } from "./components";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Inventory = () => {
+const InventoryScreen = () => {
   const { theme } = useTheme();
   const nav = useNavigation();
   useLayoutEffect(() => {
@@ -50,4 +50,4 @@ const Inventory = () => {
   );
 };
 
-export default Inventory;
+export default InventoryScreen;
