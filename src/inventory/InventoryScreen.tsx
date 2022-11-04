@@ -27,8 +27,8 @@ const InventoryScreen = () => {
     const get = async () => {
       const res = axios.get("https://rickandmortyapi.com/api/character/128");
       res
-        .then((data) => {
-          console.log(data.status);
+        .then((value) => {
+          console.log(value.data);
           setState(StateInventory.online);
         })
         .catch((reason) => {
@@ -76,7 +76,7 @@ const InventoryScreen = () => {
         </View>
       </ScrollView>
       {state === StateInventory.loading && <Skeleton style={tw`h-8`} />}
-      {state === StateInventory.offline && <Alert />}
+      {state === StateInventory.error && <Alert />}
       {state === StateInventory.online && <Msg />}
       <ButtonAdd />
     </SafeAreaView>
