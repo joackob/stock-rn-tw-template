@@ -1,4 +1,5 @@
-import InventoryCard from "./InventoryCard";
-import InventoryList from "./InventoryList";
+import ItemCard from "./ItemCard";
+import ItemList from "./ItemList";
+import ButtonAdd from "./ButtonAdd";
 
-export { InventoryList, InventoryCard };
+export { ButtonAdd, ItemCard, ItemList };

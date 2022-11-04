@@ -1,24 +1,27 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import NavBar from "./NavBar";
-import InventoryScreen from "../inventory/screens/InventoryScreen";
-import { RootStackParamList } from "./interfaces";
+import ItemScreen from "../item/ItemScreen";
+import InventoryScreen from "../inventory/InventoryScreen";
+import AddItemScreen from "../add_item/AddItemScreen";
+import { ItemInventory } from "../item/interfaces";
+
+export type RootStackParamList = {
+  ItemScreen: ItemInventory;
+  InventoryScreen: undefined;
+  AddItemScreen: undefined;
+};
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const RootStackNavigator = () => {
   return (
-    <RootStack.Navigator
-      screenOptions={() => ({
-        headerShown: false,
-      })}
-    >
-      <RootStack.Group>
-        <RootStack.Screen name="NavBar" component={NavBar} />
-      </RootStack.Group>
-
+    <RootStack.Navigator screenOptions={{ headerShown: false }}>
       <RootStack.Group>
         <RootStack.Screen name="InventoryScreen" component={InventoryScreen} />
+        <RootStack.Screen name="ItemScreen" component={ItemScreen} />
+      </RootStack.Group>
+      <RootStack.Group screenOptions={{ presentation: "modal" }}>
+        <RootStack.Screen name="AddItemScreen" component={AddItemScreen} />
       </RootStack.Group>
     </RootStack.Navigator>
   );
