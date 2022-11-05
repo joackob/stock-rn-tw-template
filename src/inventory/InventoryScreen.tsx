@@ -7,6 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ItemInventory } from "../item/interfaces";
 import { Skeleton } from "@rneui/base";
 import axios from "axios";
+import { useInventoryContext } from "../store/context";
 
 enum StateInventory {
   online,
@@ -16,42 +17,12 @@ enum StateInventory {
 }
 const InventoryScreen = () => {
   const { theme } = useTheme();
-  const [items, setItems] = useState<ItemInventory[]>([]);
-  const [state, setState] = useState<StateInventory>(StateInventory.loading);
+  const { values } = useInventoryContext();
+  const [items, setItems] = useState(values);
 
   const handleSearch = (search: string) => {
     setItems(items.filter((i) => i.name.includes(search)));
   };
-
-  useEffect(() => {
-    const get = async () => {
-      const res = axios.get("https://rickandmortyapi.com/api/character/128");
-      res
-        .then((value) => {
-          console.log(value.data);
-          setState(StateInventory.online);
-        })
-        .catch((reason) => {
-          console.log(reason);
-          setState(StateInventory.error);
-        });
-    };
-    get();
-  }, []);
-
-  const Alert = () => (
-    <View style={tw`h-8 bg-[${theme.colors.warning}]`}>
-      <Text style={tw`text-white font-bold`}>
-        Ups, algo on ocurrio como debia
-      </Text>
-    </View>
-  );
-
-  const Msg = () => (
-    <View style={tw`h-8 bg-[${theme.colors.success}]`}>
-      <Text style={tw`text-white font-bold`}>Genial!!</Text>
-    </View>
-  );
 
   return (
     <SafeAreaView style={tw`h-full`}>
@@ -75,9 +46,7 @@ const InventoryScreen = () => {
           <ItemList items={items} />
         </View>
       </ScrollView>
-      {state === StateInventory.loading && <Skeleton style={tw`h-8`} />}
-      {state === StateInventory.error && <Alert />}
-      {state === StateInventory.online && <Msg />}
+      <ItemList items={items} />
       <ButtonAdd />
     </SafeAreaView>
   );
