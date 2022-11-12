@@ -90,4 +90,4 @@ En la carpeta `/screens` es donde se localizan cada una de las pantallas separad
 
 #### estado global
 
-En la carpeta `src/itemsinventory` se encuentra la lógica para la gestión del estado del inventario y los items que se encuentran en el
+En la carpeta `/src` se encuentra la lógica para la gestión del estado del inventario. Se implemento usando `react-redux` y `redux-toolkit` por lo que saber sobre estas tecnologías es fundamental para poder extender las capacidades de este template.
