@@ -6,13 +6,7 @@ import ItemCard from "./ItemCard";
 
 const ItemsList = ({ items }: { items: ItemInventory[] }) => {
   return (
-    <View
-      style={[
-        tw`flex flex-row flex-wrap justify-${
-          items.length > 2 ? "between" : "around"
-        }`,
-      ]}
-    >
+    <View style={[tw`flex flex-col`]}>
       {items.map((item) => {
         return <ItemCard key={item.id} item={item} />;
       })}

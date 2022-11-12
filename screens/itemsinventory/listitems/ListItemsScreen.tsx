@@ -36,11 +36,10 @@ const ListItemsScreen = () => {
             onChangeText={setSearch}
             containerStyle={tw`bg-white pt-5 pb-0 px-10 rounded-xl`}
           />
+          <ItemList
+            items={items.filter((item) => item.description.includes(search))}
+          />
         </View>
-
-        <ItemList
-          items={items.filter((item) => item.description.includes(search))}
-        />
       </ScrollView>
       <ButtonAdd />
     </SafeAreaView>

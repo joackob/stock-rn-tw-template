@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { Icon, useTheme } from "@rneui/themed";
+import { Icon, useTheme, Badge, Divider } from "@rneui/themed";
 import tw from "twrnc";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../../../navigator";
@@ -17,13 +17,40 @@ const ItemCard = ({ item }: { item: ItemInventory }) => {
   const nav = useNavigation<ItemCardNavigationProps>();
   return (
     <TouchableOpacity onPress={() => nav.navigate("ItemScreen", item)}>
-      <View style={tw`mt-4 w-30`}>
-        <View style={tw`bg-[${theme.colors.secondary}] rounded-xl `}>
-          <View style={tw`flex flex-col justify-center items-center py-4 `}>
-            <Icon name="inventory" size={32} />
-            <Text style={tw`font-bold mt-2 text-[${theme.colors.black}]`}>
-              {item.name}
-            </Text>
+      <View style={tw`mt-4`}>
+        <View style={tw`bg-[${theme.colors.white}] rounded-xl `}>
+          <View style={tw`flex flex-col p-4`}>
+            <View style={tw`flex flex-row justify-between items-center`}>
+              <View>
+                <Text
+                  style={tw`font-bold mt-2 text-[${theme.colors.black}] text-2xl`}
+                >
+                  {item.name}
+                </Text>
+                <Text
+                  style={tw`font-bold mt-2 text-[${theme.colors.grey0}] text-sm`}
+                >
+                  ID: {item.id}
+                </Text>
+              </View>
+              <View>
+                <Icon name="inventory" size={64} />
+                <Badge
+                  status="warning"
+                  value={item.amount}
+                  containerStyle={tw`absolute left-12`}
+                />
+              </View>
+            </View>
+            <Divider style={tw`my-2`} />
+            <View>
+              <Text
+                numberOfLines={1}
+                style={tw`font-bold text-[${theme.colors.black}]  `}
+              >
+                Descripción: {item.description}
+              </Text>
+            </View>
           </View>
         </View>
       </View>
