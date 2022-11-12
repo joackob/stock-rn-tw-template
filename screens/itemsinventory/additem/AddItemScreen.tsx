@@ -6,16 +6,14 @@ import {
 } from "react-native";
 import React from "react";
 import tw from "twrnc";
-import { useTheme, Image, Input } from "@rneui/themed";
+import { useTheme, Image, Input, Button } from "@rneui/themed";
 
 const AddItemScreen = () => {
   const { theme } = useTheme();
   return (
     <SafeAreaView style={tw`h-full`}>
-      <ScrollView
-        style={{
-          backgroundColor: theme.colors.background,
-        }}
+      <View
+        style={tw`h-full bg-[${theme.colors.background}] flex flex-col justify-center`}
       >
         <Image
           source={require(`./assets/control-inventario-erp.png`)}
@@ -23,13 +21,15 @@ const AddItemScreen = () => {
           style={tw`w-full h-64`}
           PlaceholderContent={<ActivityIndicator />}
         />
-        <View style={tw`mx-4`}>
-          <Input
-            placeholder="Nombre"
-            containerStyle={tw`bg-white pt-5 pb-0 px-10 rounded-xl`}
-          />
+        <View
+          style={tw`mx-4  py-5 px-10 rounded-xl bg-[${theme.colors.white}]`}
+        >
+          <Input placeholder="Nombre" autoFocus autoCapitalize="sentences" />
+          <Input placeholder="Descripción" autoCapitalize="sentences" />
+          <Input placeholder="Cantidad actual" />
+          <Button>Agregar</Button>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };

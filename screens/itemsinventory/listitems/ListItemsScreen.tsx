@@ -34,7 +34,7 @@ const ListItemsScreen = () => {
           <Input
             placeholder="Buscar por nombre o descripción"
             onChangeText={setSearch}
-            containerStyle={tw`bg-white pt-5 pb-0 px-10 rounded-xl`}
+            containerStyle={tw`bg-[${theme.colors.white}]  pt-5 pb-0 px-10 rounded-xl`}
           />
           <ItemList
             items={items.filter((item) => item.description.includes(search))}
