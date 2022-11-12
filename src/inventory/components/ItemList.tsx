@@ -14,7 +14,7 @@ const ItemsList = ({ items }: { items: ItemInventory[] }) => {
       ]}
     >
       {items.map((item) => {
-        return <ItemCard item={item} />;
+        return <ItemCard key={item.id} item={item} />;
       })}
     </View>
   );

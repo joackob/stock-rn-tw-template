@@ -1,28 +1,22 @@
 import { ActivityIndicator, ScrollView, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useTheme, Text, Image, Input, Card } from "@rneui/themed";
+import { useTheme, Image, Input } from "@rneui/themed";
 import tw from "twrnc";
 import { ItemList, ButtonAdd } from "./components";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ItemInventory } from "../item/interfaces";
-import { Skeleton } from "@rneui/base";
-import axios from "axios";
-import { useInventoryContext } from "../store/context";
+import { StatusInventory, useInventoryContext } from "../store/context";
 
-enum StateInventory {
-  online,
-  offline,
-  error,
-  loading,
-}
 const InventoryScreen = () => {
   const { theme } = useTheme();
-  const { values } = useInventoryContext();
-  const [items, setItems] = useState(values);
+  const { values, status, setItems } = useInventoryContext();
+  const [search, setSearch] = useState<string>("");
 
-  const handleSearch = (search: string) => {
-    setItems(items.filter((i) => i.name.includes(search)));
-  };
+  useEffect(() => {
+    const wrapAsync = async () => {
+      setItems();
+    };
+    wrapAsync();
+  }, []);
 
   return (
     <SafeAreaView style={tw`h-full`}>
@@ -39,14 +33,17 @@ const InventoryScreen = () => {
         />
         <View style={tw`mx-4`}>
           <Input
-            placeholder="Buscar por nombre, descripción o categoria"
-            onChangeText={handleSearch}
+            placeholder="Buscar por nombre o descripción"
+            onChangeText={setSearch}
             containerStyle={tw`bg-white pt-5 pb-0 px-10 rounded-xl`}
           />
-          <ItemList items={items} />
         </View>
+        {status === StatusInventory.online && (
+          <ItemList
+            items={values.filter((item) => item.description.includes(search))}
+          />
+        )}
       </ScrollView>
-      <ItemList items={items} />
       <ButtonAdd />
     </SafeAreaView>
   );

@@ -1,7 +1,7 @@
 import { createContext, FC, ReactNode, useContext, useState } from "react";
 import { ItemInventory, ItemInventoryProps } from "../../item/interfaces";
 import { getItems, postItem } from "../service";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import tw from "twrnc";
 import { LinearProgress, useTheme } from "@rneui/themed";
 
@@ -37,10 +37,17 @@ export const useInventoryContext = () => useContext(InventoryContext);
 const InvetoryProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<InventoryState>(initialState);
 
-  const wrapRequest = (req: () => void) => {
+  const setItems = async () => {
     try {
-      req();
+      const res = await getItems();
+      setState({
+        ...state,
+        values: res.data.items,
+        status:
+          res.status === 200 ? StatusInventory.online : StatusInventory.error,
+      });
     } catch (error) {
+      console.log(error);
       setState({
         ...state,
         status: StatusInventory.offline,
@@ -48,38 +55,38 @@ const InvetoryProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const setItems = () =>
-    wrapRequest(async () => {
-      const res = await getItems();
-      setState({
-        ...state,
-        values: res.data,
-        status:
-          res.status === 200 ? StatusInventory.online : StatusInventory.error,
-      });
-    });
-
-  const addOne = (item: ItemInventoryProps) =>
-    wrapRequest(async () => {
+  const addOne = async (item: ItemInventoryProps) => {
+    try {
       const res = await postItem(item);
       setState({
         ...state,
-        values: [res.data, ...state.values],
+        values: [res.data.items, ...state.values],
         status:
           res.status === 201 ? StatusInventory.online : StatusInventory.error,
       });
-    });
+    } catch (error) {
+      console.log(error);
+      setState({
+        ...state,
+        status: StatusInventory.offline,
+      });
+    }
+  };
 
   return (
-    <InventoryContext.Provider value={{ ...initialState, setItems, addOne }}>
+    <InventoryContext.Provider value={{ ...state, setItems, addOne }}>
+      {children}
       {state.status === StatusInventory.error && (
-        <Alert>ups!!! Algo no ocurrio como debiera</Alert>
+        <Alert>
+          <Text>ups!!! Algo no ocurrio como debiera</Text>
+        </Alert>
       )}
       {state.status === StatusInventory.offline && (
-        <Alert>Ups!!! Revisa tu conexión a la red</Alert>
+        <Alert>
+          <Text>Ups!!! Revisa tu conexión a la red</Text>
+        </Alert>
       )}
       {state.status === StatusInventory.loading && <LinearProgress />}
-      {children}
     </InventoryContext.Provider>
   );
 };
