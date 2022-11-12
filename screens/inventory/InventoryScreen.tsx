@@ -4,18 +4,18 @@ import { useTheme, Image, Input } from "@rneui/themed";
 import tw from "twrnc";
 import { ItemList, ButtonAdd } from "./components";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusInventory, useInventoryContext } from "../store/context";
+import { useAppDispatch, useAppSelector } from "../../src/store";
+import { setup } from "../../src/iteminventory/thunks";
+import { StatusItemsState } from "../../src/iteminventory/slice";
 
 const InventoryScreen = () => {
   const { theme } = useTheme();
-  const { values, status, setItems } = useInventoryContext();
   const [search, setSearch] = useState<string>("");
+  const { status, values: items } = useAppSelector((state) => state.items);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const wrapAsync = async () => {
-      setItems();
-    };
-    wrapAsync();
+    dispatch(setup());
   }, []);
 
   return (
@@ -38,11 +38,10 @@ const InventoryScreen = () => {
             containerStyle={tw`bg-white pt-5 pb-0 px-10 rounded-xl`}
           />
         </View>
-        {status === StatusInventory.online && (
-          <ItemList
-            items={values.filter((item) => item.description.includes(search))}
-          />
-        )}
+
+        <ItemList
+          items={items.filter((item) => item.description.includes(search))}
+        />
       </ScrollView>
       <ButtonAdd />
     </SafeAreaView>

@@ -1,16 +1,17 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { RootStackNavigator, Theme } from "./screens";
-import InvetoryProvider from "./screens/store/context";
+import { store } from "./src/store";
+import { Provider } from "react-redux";
 
 export default function App() {
   return (
     <Theme>
-      <InvetoryProvider>
+      <Provider store={store}>
         <NavigationContainer>
           <RootStackNavigator />
         </NavigationContainer>
-      </InvetoryProvider>
+      </Provider>
     </Theme>
   );
 }

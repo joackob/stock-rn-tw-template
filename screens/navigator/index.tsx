@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ItemScreen from "../item/ItemScreen";
 import InventoryScreen from "../inventory/InventoryScreen";
 import AddItemScreen from "../add_item/AddItemScreen";
-import { ItemInventory } from "../item/interfaces";
+import { ItemInventory } from "../../src/iteminventory/interface";
 
 export type RootStackParamList = {
   ItemScreen: ItemInventory;
