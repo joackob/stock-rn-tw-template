@@ -18,7 +18,7 @@ const AddItemScreen = () => {
         }}
       >
         <Image
-          source={require(`../../assets/img/control-inventario-erp.png`)}
+          source={require(`./assets/control-inventario-erp.png`)}
           containerStyle={tw`w-full h-64 mt-4`}
           style={tw`w-full h-64`}
           PlaceholderContent={<ActivityIndicator />}

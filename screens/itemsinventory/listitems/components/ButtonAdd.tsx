@@ -2,7 +2,7 @@ import React from "react";
 import { FAB } from "@rneui/themed";
 import tw from "twrnc";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../navigator";
+import { RootStackParamList } from "../../../navigator";
 import { useNavigation } from "@react-navigation/native";
 
 type AddItemNavigatorProps = NativeStackNavigationProp<

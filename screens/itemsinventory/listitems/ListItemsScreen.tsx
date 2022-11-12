@@ -4,14 +4,13 @@ import { useTheme, Image, Input } from "@rneui/themed";
 import tw from "twrnc";
 import { ItemList, ButtonAdd } from "./components";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useAppDispatch, useAppSelector } from "../../src/store";
-import { setup } from "../../src/iteminventory/thunks";
-import { StatusItemsState } from "../../src/iteminventory/slice";
+import { useAppDispatch, useAppSelector } from "../../../src/store";
+import { setup } from "../../../src/iteminventory/thunks";
 
-const InventoryScreen = () => {
+const ListItemsScreen = () => {
   const { theme } = useTheme();
   const [search, setSearch] = useState<string>("");
-  const { status, values: items } = useAppSelector((state) => state.items);
+  const { values: items } = useAppSelector((state) => state.items);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -26,7 +25,7 @@ const InventoryScreen = () => {
         }}
       >
         <Image
-          source={require(`../../assets/img/control-inventario-erp-2.png`)}
+          source={require(`./assets/control-inventario-erp-2.png`)}
           containerStyle={tw`w-full h-64`}
           style={tw`w-full h-64`}
           PlaceholderContent={<ActivityIndicator />}
@@ -48,4 +47,4 @@ const InventoryScreen = () => {
   );
 };
 
-export default InventoryScreen;
+export default ListItemsScreen;

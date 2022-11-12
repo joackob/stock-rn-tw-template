@@ -14,7 +14,7 @@ const ItemScreen = () => {
         }}
       >
         <Image
-          source={require(`../../assets/img/control-inventario-erp-3.png`)}
+          source={require(`./assets/control-inventario-erp-3.png`)}
           containerStyle={tw`w-full h-64 mt-4`}
           style={tw`w-full h-64 `}
           PlaceholderContent={<ActivityIndicator />}

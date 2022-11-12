@@ -1,4 +1,4 @@
-# React Native Template App :mobile_phone_off:
+# Stock App with React Native Template App :mobile_phone_off:
 
 Como el titulo lo indica, este es un template para la creación de proyectos basados en React Native
 
@@ -66,6 +66,7 @@ Por otra parte, para compilar el ejecutable ya sea para android o para ios, debe
 - [React Native Navigation](https://reactnavigation.org/)
 - [Expo Google Fonts](https://docs.expo.dev/guides/using-custom-fonts/) (No se encuentra por defecto en el template, pero se recomienda su uso)
 - [React Native Elements](https://reactnativeelements.com/)
+- [React Redux and Redux Toolkit](https://redux.js.org/tutorials/quick-start)
 
 ## Pasos para customizar este template
 
@@ -82,3 +83,11 @@ Con la marca ya elegida, proceda a elegir los colores que serán parte del estil
 - https://mui.com/material-ui/customization/theming/
 - https://mui.com/material-ui/customization/color/
 - https://reactnativeelements.com/docs/customization/themeprovider
+
+#### pantallas o screens
+
+En la carpeta `/screens` es donde se localizan cada una de las pantallas separadas por carpeta de acuerdo a función dentro de la app. En la carpeta `/screens/navigator` se encuentra el componente encargado de gestionar la stack de pantallas.
+
+#### estado global
+
+En la carpeta `src/itemsinventory` se encuentra la lógica para la gestión del estado del inventario y los items que se encuentran en el
