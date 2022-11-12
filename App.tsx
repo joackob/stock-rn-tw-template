@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import { RootStackNavigator, Theme } from "./src";
-import InvetoryProvider from "./src/store/context";
+import { RootStackNavigator, Theme } from "./screens";
+import InvetoryProvider from "./screens/store/context";
 
 export default function App() {
   return (
