@@ -1,12 +1,12 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ItemScreen from "../itemsinventory/descriptionitem/ItemScreen";
+import DescriptionItemScreen from "../itemsinventory/descriptionitem/DescriptionItemScreen";
 import ListItemsScreen from "../itemsinventory/listitems/ListItemsScreen";
 import AddItemScreen from "../itemsinventory/additem/AddItemScreen";
 import { ItemInventory } from "../../src/iteminventory/interface";
 
 export type RootStackParamList = {
-  ItemScreen: ItemInventory;
+  DescriptionItemScreen: ItemInventory;
   ListItemsScreen: undefined;
   AddItemScreen: undefined;
 };
@@ -18,7 +18,10 @@ const RootStackNavigator = () => {
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
       <RootStack.Group>
         <RootStack.Screen name="ListItemsScreen" component={ListItemsScreen} />
-        <RootStack.Screen name="ItemScreen" component={ItemScreen} />
+        <RootStack.Screen
+          name="DescriptionItemScreen"
+          component={DescriptionItemScreen}
+        />
       </RootStack.Group>
       <RootStack.Group screenOptions={{ presentation: "modal" }}>
         <RootStack.Screen name="AddItemScreen" component={AddItemScreen} />

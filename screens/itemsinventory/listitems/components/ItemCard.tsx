@@ -9,14 +9,16 @@ import { ItemInventory } from "../../../../src/iteminventory/interface";
 
 type ItemCardNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
-  "ItemScreen"
+  "DescriptionItemScreen"
 >;
 
 const ItemCard = ({ item }: { item: ItemInventory }) => {
   const { theme } = useTheme();
   const nav = useNavigation<ItemCardNavigationProps>();
   return (
-    <TouchableOpacity onPress={() => nav.navigate("ItemScreen", item)}>
+    <TouchableOpacity
+      onPress={() => nav.navigate("DescriptionItemScreen", item)}
+    >
       <View style={tw`mt-4`}>
         <View style={tw`bg-[${theme.colors.white}] rounded-xl `}>
           <View style={tw`flex flex-col p-4`}>
