@@ -7,6 +7,8 @@ export enum StatusItemsState {
   online,
   offline,
   error,
+  success,
+  noevents,
 }
 
 export type ItemsState = {
@@ -24,7 +26,14 @@ const initialState: ItemsState = {
 const itemsSlice = createSlice({
   name: "items",
   initialState,
-  reducers: {},
+  reducers: {
+    closeAlert: (state) => {
+      return {
+        ...state,
+        status: StatusItemsState.noevents,
+      };
+    },
+  },
   extraReducers(builder) {
     builder.addCase(
       setup.fulfilled,
@@ -33,13 +42,14 @@ const itemsSlice = createSlice({
         return {
           ...state,
           values: items,
+          status: StatusItemsState.online,
         };
       }
     );
     builder.addCase(setup.rejected, (state) => {
       return {
         ...state,
-        status: StatusItemsState.error,
+        status: StatusItemsState.offline,
       };
     });
     builder.addCase(setup.pending, (state) => {
@@ -55,7 +65,6 @@ const itemsSlice = createSlice({
         return {
           ...state,
           values: [item, ...state.values],
-          status: StatusItemsState.online,
         };
       }
     );
@@ -63,9 +72,12 @@ const itemsSlice = createSlice({
       return {
         ...state,
         status: StatusItemsState.error,
+        message:
+          "Ups!!! Asegurese de haber completado correctamente los campos",
       };
     });
   },
 });
 
 export const itemsReducer = itemsSlice.reducer;
+export const { closeAlert } = itemsSlice.actions;

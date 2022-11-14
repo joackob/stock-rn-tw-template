@@ -19,11 +19,7 @@ const ListItemsScreen = () => {
 
   return (
     <SafeAreaView style={tw`h-full`}>
-      <ScrollView
-        style={{
-          backgroundColor: theme.colors.background,
-        }}
-      >
+      <ScrollView style={tw`bg-[${theme.colors.background}] h-full`}>
         <Image
           source={require(`./assets/control-inventario-erp-2.png`)}
           containerStyle={tw`w-full h-64`}
