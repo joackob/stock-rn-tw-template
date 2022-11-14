@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ItemInventory } from "../interface";
-import { setup, addOne } from "../thunks";
+import { setup, addOne, removeOne } from "../thunks";
 
 export enum StatusItemsState {
   loading,
@@ -76,6 +76,17 @@ const itemsSlice = createSlice({
           "Ups!!! Asegurese de haber completado correctamente los campos",
       };
     });
+    builder.addCase(
+      removeOne.fulfilled,
+      (state, action: PayloadAction<{ id: string; wasRemoved: boolean }>) => {
+        const { id, wasRemoved } = action.payload;
+        if (!wasRemoved) return;
+        return {
+          ...state,
+          values: state.values.filter((item) => item.id !== id),
+        };
+      }
+    );
   },
 });
 

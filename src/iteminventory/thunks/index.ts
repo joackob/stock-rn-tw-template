@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ItemInventoryProps } from "../interface";
-import { getItems, postItem } from "../service";
+import { ItemInventory, ItemInventoryProps } from "../interface";
+import { deleteItem, getItems, postItem } from "../service";
 
 export const setup = createAsyncThunk(
   "set/items",
@@ -10,4 +10,9 @@ export const setup = createAsyncThunk(
 export const addOne = createAsyncThunk(
   "post/item",
   async (item: ItemInventoryProps) => await postItem(item)
+);
+
+export const removeOne = createAsyncThunk(
+  "delete/item",
+  async (item: ItemInventory) => await deleteItem(item)
 );

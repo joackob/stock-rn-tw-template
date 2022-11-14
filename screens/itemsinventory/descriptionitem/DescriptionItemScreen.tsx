@@ -31,7 +31,12 @@ const ItemScreen = () => {
       />
 
       <View style={tw`bg-[${theme.colors.white}] rounded-tl-xl rounded-tr-xl`}>
-        <Buttons />
+        <Buttons
+          name={name}
+          description={description}
+          amount={amount}
+          id={id}
+        />
         <View style={tw`p-4`}>
           <View style={tw`flex flex-row justify-between`}>
             <View>

@@ -27,3 +27,13 @@ export const postItem = async (
     id: res.data.id,
   };
 };
+
+export const deleteItem = async (
+  item: ItemInventory
+): Promise<{ id: string; wasRemoved: boolean }> => {
+  const res = await axios.delete(`${api.items}/${item.id}`);
+  return {
+    id: item.id,
+    wasRemoved: res.status === 204,
+  };
+};
