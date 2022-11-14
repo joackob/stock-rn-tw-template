@@ -1,7 +1,7 @@
 import { View, SafeAreaView, ActivityIndicator } from "react-native";
 import React, { useState } from "react";
 import tw from "twrnc";
-import { useTheme, Image, Button, Input } from "@rneui/themed";
+import { useTheme, Image, Button, Input, FAB } from "@rneui/themed";
 import { ItemInventoryProps } from "../../../src/iteminventory/interface";
 import { useAppDispatch } from "../../../src/store";
 import { addOne } from "../../../src/iteminventory/thunks";
@@ -46,7 +46,7 @@ const AddItemScreen = () => {
   return (
     <SafeAreaView style={tw`h-full`}>
       <View
-        style={tw`h-full bg-[${theme.colors.background}] flex flex-col justify-center`}
+        style={tw`h-full bg-[${theme.colors.background}] flex flex-col justify-between`}
       >
         <Image
           source={require(`./assets/control-inventario-erp.png`)}
@@ -55,7 +55,7 @@ const AddItemScreen = () => {
           PlaceholderContent={<ActivityIndicator />}
         />
         <View
-          style={tw`mx-4  py-5 px-10 rounded-xl bg-[${theme.colors.white}]`}
+          style={tw`  py-5 px-10 rounded-tl-xl rounded-tr-xl bg-[${theme.colors.white}]`}
         >
           <Input
             onChangeText={handleTextChange("name")}
@@ -76,7 +76,7 @@ const AddItemScreen = () => {
             keyboardType="numeric"
             blurOnSubmit={false}
           />
-          <Button onPress={handlePress}>Agregar</Button>
+          <FAB icon={{ name: "add", color: "white" }} onPress={handlePress} />
         </View>
       </View>
     </SafeAreaView>

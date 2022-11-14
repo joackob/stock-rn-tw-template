@@ -18,13 +18,13 @@ const RootStackNavigator = () => {
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
       <RootStack.Group>
         <RootStack.Screen name="ListItemsScreen" component={ListItemsScreen} />
+      </RootStack.Group>
+      <RootStack.Group screenOptions={{ presentation: "modal" }}>
+        <RootStack.Screen name="AddItemScreen" component={AddItemScreen} />
         <RootStack.Screen
           name="DescriptionItemScreen"
           component={DescriptionItemScreen}
         />
-      </RootStack.Group>
-      <RootStack.Group screenOptions={{ presentation: "modal" }}>
-        <RootStack.Screen name="AddItemScreen" component={AddItemScreen} />
       </RootStack.Group>
     </RootStack.Navigator>
   );
