@@ -45,7 +45,7 @@ const AlertMsg = ({
   return (
     <TouchableOpacity
       style={[
-        tw`min-h-10  flex flex-row justify-between items-center `,
+        tw` flex flex-row justify-between items-center  rounded-md w-full`,
         {
           backgroundColor: color?.light,
         },
@@ -54,7 +54,7 @@ const AlertMsg = ({
     >
       <Text
         style={[
-          tw`font-bold text-sm m-4`,
+          tw`font-bold text-sm p-4`,
           {
             color: color?.dark,
           },
