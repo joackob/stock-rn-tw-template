@@ -21,6 +21,7 @@ const AddItemScreen = () => {
     name: "",
     description: "",
     amount: 0,
+    location: "",
   });
 
   const handleTextChange = (field: string) => (value: string) => {
@@ -74,6 +75,12 @@ const AddItemScreen = () => {
             onChangeText={handleAmountChange}
             placeholder="Cantidad actual"
             keyboardType="numeric"
+            blurOnSubmit={false}
+          />
+          <Input
+            onChangeText={handleTextChange("location")}
+            placeholder="Locacion"
+            autoCapitalize="sentences"
             blurOnSubmit={false}
           />
           <FAB icon={{ name: "add", color: "white" }} onPress={handlePress} />
