@@ -1,5 +1,5 @@
-import { View, SafeAreaView, ActivityIndicator } from "react-native";
-import React, { useState } from "react";
+import { View, SafeAreaView, ActivityIndicator, TextInput } from "react-native";
+import React, { createRef, RefObject, useState } from "react";
 import tw from "twrnc";
 import { useTheme, Image, Input, FAB } from "@rneui/themed";
 import { ItemInventoryProps } from "../../../src/iteminventory/interface";
@@ -22,6 +22,9 @@ const AddItemScreen = () => {
     description: "",
     amount: 0,
   });
+
+  const descriptionRef = createRef<TextInput>();
+  const amountRef = createRef<TextInput>();
 
   const handleTextChange = (field: string) => (value: string) => {
     setData({
@@ -63,18 +66,22 @@ const AddItemScreen = () => {
             autoCapitalize="sentences"
             autoFocus
             blurOnSubmit={false}
+            onSubmitEditing={() => descriptionRef.current?.focus()}
           />
           <Input
             onChangeText={handleTextChange("description")}
             placeholder="Descripción"
             autoCapitalize="sentences"
             blurOnSubmit={false}
+            ref={descriptionRef as any}
+            onSubmitEditing={() => amountRef.current?.focus()}
           />
           <Input
             onChangeText={handleAmountChange}
             placeholder="Cantidad actual"
             keyboardType="numeric"
             blurOnSubmit={false}
+            ref={amountRef as any}
           />
           <FAB icon={{ name: "add", color: "white" }} onPress={handlePress} />
         </View>
