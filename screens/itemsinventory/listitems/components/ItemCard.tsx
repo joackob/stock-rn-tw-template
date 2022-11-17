@@ -32,7 +32,7 @@ const ItemCard = ({ item }: { item: ItemInventory }) => {
                 <Text
                   style={tw`font-bold mt-2 text-[${theme.colors.grey0}] text-sm`}
                 >
-                  ID: {item.id}
+                  ID: {item.id.substring(0, 10)}
                 </Text>
               </View>
               <View>

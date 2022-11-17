@@ -1,21 +1,15 @@
 import { ActivityIndicator, ScrollView, View } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useTheme, Image, Input } from "@rneui/themed";
 import tw from "twrnc";
 import { ItemList, ButtonAdd } from "./components";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useAppDispatch, useAppSelector } from "../../../src/store";
-import { setup } from "../../../src/iteminventory/thunks";
+import { useAppSelector, selectorItems } from "../../../src/store";
 
 const ListItemsScreen = () => {
   const { theme } = useTheme();
   const [search, setSearch] = useState<string>("");
-  const { values: items } = useAppSelector((state) => state.items);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(setup());
-  }, []);
+  const items = useAppSelector(selectorItems.selectAll);
 
   return (
     <SafeAreaView style={tw`h-full`}>

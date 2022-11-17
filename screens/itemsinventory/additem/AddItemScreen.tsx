@@ -1,10 +1,10 @@
 import { View, SafeAreaView, ActivityIndicator } from "react-native";
 import React, { useState } from "react";
 import tw from "twrnc";
-import { useTheme, Image, Button, Input, FAB } from "@rneui/themed";
+import { useTheme, Image, Input, FAB } from "@rneui/themed";
 import { ItemInventoryProps } from "../../../src/iteminventory/interface";
 import { useAppDispatch } from "../../../src/store";
-import { addOne } from "../../../src/iteminventory/thunks";
+import { addOne } from "../../../src/iteminventory/slice/index";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../navigator";

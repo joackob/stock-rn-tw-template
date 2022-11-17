@@ -4,7 +4,7 @@ import { FAB, useTheme } from "@rneui/themed";
 import tw from "twrnc";
 import { ItemInventory } from "../../../../src/iteminventory/interface";
 import { useAppDispatch } from "../../../../src/store";
-import { removeOne } from "../../../../src/iteminventory/thunks";
+import { removeOne } from "../../../../src/iteminventory/slice";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../navigator";
 import { useNavigation } from "@react-navigation/native";
@@ -20,7 +20,7 @@ const Buttons = (item: ItemInventory) => {
   const nav = useNavigation<EditItemNavigationProps>();
 
   const handleDelete = () => {
-    dispatch(removeOne(item));
+    dispatch(removeOne(item.id));
     nav.navigate("ListItemsScreen");
   };
 
