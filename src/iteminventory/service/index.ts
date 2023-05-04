@@ -3,7 +3,7 @@ import { API_URI } from "../../api";
 import { ItemInventory, ItemInventoryProps } from "../interface";
 
 export const api = {
-  items: `${API_URI}/collections/item/records`,
+  items: `${API_URI}/collections/items/records`,
 };
 
 const header = {
