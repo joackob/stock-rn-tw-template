@@ -1,6 +1,9 @@
 # Stock App with React Native Template App :mobile_phone_off:
 
-Como el titulo lo indica, este es un template para la creación de proyectos basados en React Native
+Aplicación para la gestión y control de insumos, maquinas y herramientas en entornos formativos.
+
+| ![Screenshot_1692230648](./assets/Screenshot_1692230648.png) | ![Screenshot_1692230660](./assets/Screenshot_1692230660.png) | ![Screenshot_1692230706](./assets/Screenshot_1692230706.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 ## Entorno
 
